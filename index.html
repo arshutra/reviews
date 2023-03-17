@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+</head>
+<script src="https://kit.fontawesome.com/7d6798967a.js" crossorigin="anonymous"></script>
+<link rel="shortcut icon" href="colors_tblog.jpg" type="image/x-icon">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700&family=Fuzzy+Bubbles:wght@700&family=Poppins:wght@300&family=Rubik+Gemstones&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;flex-direction: column;
+    }
+
+    .box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30rem;
+        background: #f3e1f8;
+        height:     18rem;
+        flex-direction: column;
+        gap: 15px;
+        border: 3px solid #c800ff;
+        padding: 10px;
+    }
+
+    img {
+        width: 150px;
+        border-radius: 50%;
+        height: 150px;
+        border: 3px solid #c800ff;
+    }
+
+    .underline{
+        width: 120px;
+        background: #c800ff;
+        height: 4px;border-radius: 40px;
+        margin-bottom: 50px;
+    }
+
+    h3 {
+        font-size: 25px;
+        font-family: 'Fuzzy Bubbles', cursive;
+        color: rgb(0, 0, 0);
+        color: #c800ff;
+    }
+    h2 {
+        font-size: 24px;
+        font-family: 'open sans', cursive;
+        color: rgb(0, 0, 0);
+    }
+
+    h6 {
+        font-size: 16px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 200;
+        text-align: center;
+        color: rgb(0, 0, 0);
+
+    }
+
+    h1{
+        color: black;
+        font-size: 40px;
+        font-family: 'Fuzzy Bubbles',sans-serif;
+    }
+   
+
+    #pre,
+    #nxt {
+        color: #c800ff;
+        width: 3rem;
+        text-align: center;
+        margin: 5px;
+        font-size: 25px;
+        border-radius: 20px;
+    }
+
+    #pre:hover,
+    #nxt:hover{
+        transform: scale(1.2);transition: 1s;cursor: pointer;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Our Reviews</h1>
+        <div class="underline"></div>
+        <div class="box">
+            <h2 id="name">Maria Lee</h2>
+            <h3 id="job">CEO and Founder</h3>
+            <h6 id="txt">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, molestiae facilis veritatis nemo
+                quas aut et debitis nam a corporis, atque quasi repellendus provident reprehenderit voluptates voluptas
+                quia necessitatibus assumenda!</h6>
+            <div class="button"><i id="pre" class="fa-solid fa-chevron-left"></i><i id="nxt"
+                    class="fa-solid fa-chevron-right"></i></div>
+            
+        </div>
+    </div>
+
+    <script>
+
+        let random=document.getElementById("random")
+        let pre=document.getElementById("pre")
+        let nxt=document.getElementById("nxt")
+        let text=document.getElementById("txt")
+        let name=document.getElementById("name")
+        let job=document.getElementById("job")
+        let img=document.getElementById("img")
+
+        let content=[{
+            id:1,
+            job:"Front-End Developer",
+            name:"Flora Nissan",
+            text:"Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, molestiae facilis veritatis, aehenderit voluptates voluptas quia necessitatibus assumenda!"
+        },
+        {
+            id:2,
+            job:"Manager",
+            name:"Malinda Jow",
+            text:"Lorem ipsum dolor sit amet consectetu, adipisicing elit. Repudiandae, molr, adipisicing elit. Repudiandae, molestiae facilis veritatis, aehenderit voluptates voluptas quia necessitatibus assumenda!"
+        },
+       {
+            id:3,
+            job:"Designer",
+            name:"Harry Clay",
+            text:"Lorem lorem ipipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, mol ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae, molestiae facilis veritatis, aehenderit voluptates voluptas quia necessitatibus assumenda!"
+        }
+    
+    ]
+
+    let currentItem=1
+
+    window.addEventListener ("DOMContentLoaded",function(){
+        showPerson(currentItem)
+    })
+
+    function showPerson(person){
+        let item=content[person]
+        job.innerHTML=item.job
+        name.innerHTML=item.name
+        text.innerHTML=item.text
+    }
+    
+      nxt.addEventListener("click",function(){
+        currentItem++
+        if(currentItem>content.length-1)
+        currentItem=0
+        showPerson(currentItem)
+      })  
+      pre.addEventListener("click",function(){
+        currentItem--
+        if(currentItem<0){
+            currentItem=content.length-1
+        }
+       
+        showPerson(currentItem)
+      })  
+   
+    </script>
+</body>
+
+</html>
